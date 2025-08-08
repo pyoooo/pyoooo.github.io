@@ -5,184 +5,337 @@ html(lang='en')
 
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
+        meta(name='description', content='Wave - Where TikTok meets Tinder. Swipe on videos, not photos. Find your match through authentic video dating.')
+        meta(name='author', content='Wave Dating')
 
-        title New Age - Start Bootstrap Theme
+        title Wave - Video Dating | TikTok meets Tinder
 
         link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
 
         // Bootstrap icons
         link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
 
-        // Google fonts
+        // Google fonts - Adding more modern, trendy fonts
         link(rel='preconnect', href='https://fonts.gstatic.com')
-        link(href='https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&display=swap', rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap', rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap', rel='stylesheet')
 
+        // Animation Libraries CDN
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css')
+        
         // Core theme CSS (includes Bootstrap)
         link(href='css/styles.css', rel='stylesheet')
+        
+        // Fix page scroll issues and hero animation flash
+        style.
+            html { scroll-behavior: auto !important; }
+            body { scroll-behavior: auto !important; }
+            * { scroll-behavior: auto !important; }
+            
+            /* Hide hero elements initially to prevent flash */
+            .app-badge, h1, .masthead p, .download-btn {
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            /* Show fallback if GSAP doesn't load */
+            .gsap-loaded .app-badge, 
+            .gsap-loaded h1, 
+            .gsap-loaded .masthead p, 
+            .gsap-loaded .download-btn {
+                opacity: 1;
+                visibility: visible;
+            }
+        
+        // Immediate scroll fix - robust approach
+        script.
+            if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            
+            // Clear URL hash if present
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+            
+            // Prevent ScrollSpy from jumping to sections on load
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+            }, 50);
 
     body#page-top
 
         // Navigation
         nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.shadow-sm
             .container.px-5
-                a.navbar-brand.fw-bold(href='#page-top') Start Bootstrap
+                a.navbar-brand.fw-bold(href='#page-top') Wave
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu
                     i.bi-list
                 #navbarResponsive.collapse.navbar-collapse
                     ul.navbar-nav.ms-auto.me-4.my-3.my-lg-0
                         li.nav-item
+                            a.nav-link.me-lg-3(href='#how-it-works') How It Works
+                        li.nav-item
                             a.nav-link.me-lg-3(href='#features') Features
                         li.nav-item
                             a.nav-link.me-lg-3(href='#download') Download
-                    button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0(data-bs-toggle='modal', data-bs-target='#feedbackModal')
+                    button.btn.btn-primary.rounded-pill.px-4.mb-2.mb-lg-0(data-bs-toggle='modal', data-bs-target='#feedbackModal')
                         span.d-flex.align-items-center
-                            i.bi-chat-text-fill.me-2
-                            span.small Send Feedback
+                            i.bi-chat-heart-fill.me-2
+                            span.small Get Started
 
-        // Mashead header
+        // Hero section
         header.masthead
             .container.px-5
                 .row.gx-5.align-items-center
                     .col-lg-6
-                        // Mashead text and app badges
+                        // Hero text and app badges
                         .mb-5.mb-lg-0.text-center.text-lg-start
-                            h1.display-1.lh-1.mb-3 Showcase your app beautifully.
-                            p.lead.fw-normal.text-muted.mb-5 Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!
-                            .d-flex.flex-column.flex-lg-row.align-items-center
-                                a.me-lg-3.mb-4.mb-lg-0(href='#!')
-                                    img.app-badge(src='assets/img/google-play-badge.svg', alt='...')
-                                a(href='#!')
-                                    img.app-badge(src='assets/img/app-store-badge.svg', alt='...')
+                            .badge.bg-gradient-primary-to-secondary.text-white.mb-3.px-3.py-2.rounded-pill.pulse
+                                i.bi-fire.me-2
+                                | TikTok meets Tinder 🔥
+                            h1.display-1.lh-1.mb-4.text-gradient-animated
+                                | Swipe on 
+                                span.text-gradient videos
+                                |, not photos
+                            p.lead.fw-normal.text-muted.mb-5 
+                                | Skip the fake profiles and awkward small talk. See the 
+                                strong.text-primary real them 
+                                | through authentic videos. 
+                                strong.text-gradient Wave is where sparks fly ⚡
+                            .d-flex.flex-column.flex-lg-row.align-items-center.gap-3
+                                a.download-btn(href='https://apps.apple.com/us/app/wave-dating/id1520259972')
+                                    img.app-badge(src='assets/img/app-store-badge.svg', alt='Download on App Store')
+                            .mt-4.d-flex.align-items-center.text-muted.small
+                                .d-flex.align-items-center.me-4
+                                    i.bi-star-fill.text-warning.me-1
+                                    | 4.9 rating
+                                .d-flex.align-items-center
+                                    i.bi-people-fill.me-1
+                                    | 1.3K downloads
                     .col-lg-6
-                        // Masthead device mockup feature
-                        .masthead-device-mockup
+                        // Hero device mockup
+                        .masthead-device-mockup.position-relative
+                            // animated blobs background
+                            .blobs
+                                .blob.teal.b1
+                                .blob.tan.b2
+                                .blob.blue.b3
                             include includes/gradient-circle
                             include includes/shape-1
                             include includes/shape-2
-                            .device-wrapper
-                                .device(data-device='iPhoneX', data-orientation='portrait', data-color='black')
+                            .device-wrapper.device-tilt
+                                .device(data-device='iPhone15Pro', data-orientation='portrait', data-color='black')
                                     .screen.bg-black
-                                        // PUT CONTENTS HERE:
-                                        // * * This can be a video, image, or just about anything else.
-                                        // * * Set the max width of your media to 100% and the height to
-                                        // * * 100% like the demo example below.
-                                        video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
+                                        video.hero-video(muted playsinline preload='auto' autoplay loop poster='assets/img/portrait_black.png', style='max-width: 100%; height: 100%; object-fit: cover;')
                                             source(src='assets/img/demo-screen.mp4', type='video/mp4')
 
-        // Quote/testimonial aside
-        aside.text-center.bg-gradient-primary-to-secondary
+        // How it works section
+        section#how-it-works.section-light
             .container.px-5
-                .row.gx-5.justify-content-center
-                    .col-xl-8
-                        .h2.fs-1.text-white.mb-4 "An intuitive solution to a common problem that we all face, wrapped up in a single app!"
-                        img(src='assets/img/tnw-logo.svg', alt='...', style='height: 3rem;')
+                .text-center.mb-5
+                    h2.display-4.fw-bold.mb-3.text-gradient How Wave Works
+                    p.lead.text-muted It's dating, but make it video ✨
+                .row.g-5
+                    .col-md-4
+                        .how-step.h-100.d-flex.flex-column.align-items-center.text-center
+                            .feature-icon.bg-gradient-primary-to-secondary.rounded-circle.mx-auto.mb-4.d-flex.align-items-center.justify-content-center
+                                i.bi-camera-video.text-white
+                            h4.fw-bold.mb-3 1. Create Your Video Profile
+                            p.text-muted Show your personality in 30-second videos. No filters, no fake poses - just the real you.
+                    .col-md-4
+                        .how-step.h-100.d-flex.flex-column.align-items-center.text-center
+                            .feature-icon.bg-gradient-primary-to-secondary.rounded-circle.mx-auto.mb-4.d-flex.align-items-center.justify-content-center
+                                i.bi-heart.text-white
+                            h4.fw-bold.mb-3 2. Swipe on Videos
+                            p.text-muted Browse authentic video profiles. See how they laugh, talk, and move - way better than static photos.
+                    .col-md-4
+                        .how-step.h-100.d-flex.flex-column.align-items-center.text-center
+                            .feature-icon.bg-gradient-primary-to-secondary.rounded-circle.mx-auto.mb-4.d-flex.align-items-center.justify-content-center
+                                i.bi-chat-dots.text-white
+                            h4.fw-bold.mb-3 3. Connect & Vibe
+                            p.text-muted When you both swipe right, start chatting! You already know you vibe from their videos.
 
-        // App features section
-        section#features
+        // Features section with phone mockup
+        section#features.section-accent
             .container.px-5
+                // Wave divider
+                .wave-divider
+                    svg(viewBox='0 0 1440 60', xmlns='http://www.w3.org/2000/svg')
+                        path(fill='currentColor', fill-opacity='0.08', d='M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,21.3C1200,21,1320,43,1380,53.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z')
                 .row.gx-5.align-items-center
-                    .col-lg-8.order-lg-1.mb-5.mb-lg-0
-                        .container-fluid.px-5
-                            .row.gx-5
-                                .col-md-6.mb-5
-                                    // Feature item
-                                    .text-center
-                                        i.bi-phone.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Device Mockups
-                                        p.text-muted.mb-0 Ready to use HTML/CSS device mockups, no Photoshop required!
-                                .col-md-6.mb-5
-                                    // Feature item
-                                    .text-center
-                                        i.bi-camera.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Flexible Use
-                                        p.text-muted.mb-0 Put an image, video, animation, or anything else in the screen!
-                            .row
-                                .col-md-6.mb-5.mb-md-0
-                                    // Feature item
-                                    .text-center
-                                        i.bi-gift.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Free to Use
-                                        p.text-muted.mb-0 As always, this theme is free to download and use for any purpose!
-                                .col-md-6
-                                    // Feature item
-                                    .text-center
-                                        i.bi-patch-check.icon-feature.text-gradient.d-block.mb-3
-                                        h3.font-alt Open Source
-                                        p.text-muted.mb-0 Since this theme is MIT licensed, you can use it commercially!
-                    .col-lg-4.order-lg-0
-                        // Features section device mockup
+                    .col-lg-8.order-lg-1.order-1.mb-5.mb-lg-0
+                        .row.g-5
+                            .col-md-6
+                                .feature-item
+                                    i.bi-lightning-charge.icon-feature.text-gradient.d-block.mb-3
+                                    h4.fw-bold Video-First Matching
+                                    p.text-muted See personalities, not just poses. Authentic connections start with authentic content.
+                            .col-md-6
+                                .feature-item
+                                    i.bi-camera-video.icon-feature.text-gradient.d-block.mb-3
+                                    h4.fw-bold Live Video Dates
+                                    p.text-muted Skip the texting phase and jump into real-time video conversations with your matches.
+                            .col-md-6
+                                .feature-item
+                                    i.bi-geo-alt.icon-feature.text-gradient.d-block.mb-3
+                                    h4.fw-bold Location-Based Discovery
+                                    p.text-muted Find matches nearby for spontaneous coffee dates and real-world connections.
+                            .col-md-6
+                                .feature-item
+                                    i.bi-soundwave.icon-feature.text-gradient.d-block.mb-3
+                                    h4.fw-bold Voice & Video Stories
+                                    p.text-muted Share multiple video moments - from daily adventures to special talents and hobbies.
+                    .col-lg-4.order-lg-0.order-0
                         .features-device-mockup
                             include includes/gradient-circle
                             include includes/shape-1
                             include includes/shape-2
                             .device-wrapper
-                                .device(data-device='iPhoneX', data-orientation='portrait', data-color='black')
+                                .device(data-device='iPhone15Pro', data-orientation='portrait', data-color='black')
                                     .screen.bg-black
-                                        // PUT CONTENTS HERE:
-                                        // * * This can be a video, image, or just about anything else.
-                                        // * * Set the max width of your media to 100% and the height to
-                                        // * * 100% like the demo example below.
-                                        video(muted='muted', autoplay='', loop='', style='max-width: 100%; height: 100%;')
-                                            source(src='assets/img/demo-screen.mp4', type='video/mp4')
+                                        video(muted playsinline preload='auto' autoplay loop poster='assets/img/portrait_black.png', style='max-width: 100%; height: 100%; object-fit: cover;')
+                                            source(src='assets/img/9460275.mp4', type='video/mp4')
 
-        // Basic features section
-        section.bg-light
+        // Dating Cards Section - Interactive Swiper
+        section.dating-cards-section.py-5
             .container.px-5
-                .row.gx-5.align-items-center.justify-content-center.justify-content-lg-between
-                    .col-12.col-lg-5
-                        h2.display-4.lh-1.mb-4 Enter a new age of web design
-                        p.lead.fw-normal.text-muted.mb-5.mb-lg-0 This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.
-                    .col-sm-8.col-md-6
-                        .px-5.px-sm-0
-                            img.img-fluid.rounded-circle(src='https://source.unsplash.com/u8Jn2rzYIps/900x900', alt='...')
+                .text-center.mb-5
+                    h2.display-4.fw-bold.mb-3.text-gradient 💕 Meet Amazing People
+                    p.lead.text-muted Swipe through real video profiles
+                // Dating cards will be inserted here by JavaScript
+        
+        // Testimonials section
+        section.testimonials-section
+            .container.px-5
+                .text-center.mb-5
+                    h2.display-4.fw-bold.mb-3 What Customers Are Saying About Us
+                    p.lead.text-muted Real users sharing their video dating experiences
+                .row.g-4
+                    .col-lg-4
+                        .testimonial-card.bg-white.rounded-4.shadow-sm.p-4.h-100
+                            .d-flex.align-items-center.mb-3
+                                .avatar.bg-gradient-primary-to-secondary.rounded-circle.me-3.d-flex.align-items-center.justify-content-center.text-white.fw-bold J
+                                div
+                                    h6.mb-0.fw-bold Jacoby, 28
+                                    .text-muted Philadelphia, PA
+                            p.mb-3 "Making videos is SO easy! Just 30 seconds and boom - people actually see my personality. Way more fun than writing boring bios. The video quality is amazing! 🎥"
+                            .text-warning.small
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                    .col-lg-4
+                        .testimonial-card.bg-white.rounded-4.shadow-sm.p-4.h-100
+                            .d-flex.align-items-center.mb-3
+                                .avatar.bg-gradient-primary-to-secondary.rounded-circle.me-3.d-flex.align-items-center.justify-content-center.text-white.fw-bold K
+                                div
+                                    h6.mb-0.fw-bold Katie, 23
+                                    .text-muted New York, NY
+                            p.mb-3 "I was nervous about making videos at first, but the app makes it super simple! Now I'm addicted to watching everyone's mini-stories. It's like TikTok meets dating - genius! 📱"
+                            .text-warning.small
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                    .col-lg-4
+                        .testimonial-card.bg-white.rounded-4.shadow-sm.p-4.h-100
+                            .d-flex.align-items-center.mb-3
+                                .avatar.bg-gradient-primary-to-secondary.rounded-circle.me-3.d-flex.align-items-center.justify-content-center.text-white.fw-bold S
+                                div
+                                    h6.mb-0.fw-bold Sam, 27
+                                    .text-muted San Diego, CA
+                            p.mb-3 "The videos are so exciting to watch! I can see people's real energy and vibe before matching. Creating mine took like 2 minutes - no stress, just authentic me! ✨"
+                            .text-warning.small
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
+                                i.bi-star-fill
 
-        // Call to action section
-        section.cta
-            .cta-content
-                .container.px-5
-                    h2.text-white.display-1.lh-1.mb-4
-                        | Stop waiting.
-                        br
-                        | Start building.
-                    a.btn.btn-outline-light.py-3.px-4.rounded-pill(href='https://startbootstrap.com/theme/new-age', target='_blank') Download for free
+        // CTA section
+        section.cta-section.bg-gradient-animated
+            .container.px-5.text-center
+                .row.justify-content-center
+                    .col-lg-8
+                        h2.display-3.text-white.fw-bold.mb-4 Ready to find your person? 💕
+                        p.lead.text-white.mb-5.opacity-90 Join thousands of people finding real love through authentic video connections. Your soulmate is just a swipe away! ✨
+                        .d-flex.flex-column.flex-sm-row.justify-content-center.gap-3.mb-4
+                            a.btn.btn-light.btn-lg.rounded-pill.px-5.py-3(href='https://apps.apple.com/us/app/wave-dating/id1520259972')
+                                i.bi-apple.me-2
+                                | Download for iOS
+
 
         // App badge section
-        section#download.bg-gradient-primary-to-secondary
+        section#download.section-dark
             .container.px-5
-                h2.text-center.text-white.font-alt.mb-4 Get the app now!
-                .d-flex.flex-column.flex-lg-row.align-items-center.justify-content-center
-                    a.me-lg-3.mb-4.mb-lg-0(href='#!')
-                        img.app-badge(src='assets/img/google-play-badge.svg', alt='...')
-                    a(href='#!')
-                        img.app-badge(src='assets/img/app-store-badge.svg', alt='...')
+                // Wave divider
+                .wave-divider
+                    svg(viewBox='0 0 1440 60', xmlns='http://www.w3.org/2000/svg')
+                        path(fill='currentColor', fill-opacity='0.08', d='M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,21.3C1200,21,1320,43,1380,53.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z')
+                .row.align-items-center
+                    .col-lg-6.text-center.text-lg-start
+                        h3.text-white.fw-bold.mb-3 Get the app now
+                        p.text-white-50.mb-4 Available on the App Store
+                        .d-flex.flex-column.flex-sm-row.gap-3.justify-content-center.justify-content-lg-start
+                            a(href='https://apps.apple.com/us/app/wave-dating/id1520259972')
+                                img.app-badge(src='assets/img/app-store-badge.svg', alt='Download on App Store')
+                    .col-lg-6.text-center.mt-5.mt-lg-0
+                        .social-links
+                            h5.text-white.mb-3 Follow us for updates
+                            .d-flex.justify-content-center.gap-3
+                                a.social-link(href='https://www.instagram.com/officialwaveapp/')
+                                    i.bi-instagram
+                                a.social-link(href='https://www.tiktok.com/@wavedatingapp')
+                                    svg(width='20', height='20', viewBox='0 0 448 512', fill='currentColor', style='display: block; margin: 0 auto;')
+                                        path(d='M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349c0 95.6-77.4 173-173 173s-173-77.4-173-173 77.4-173 173-173c10.2 0 20.2 .9 29.9 2.6v97.6a75.9 75.9 0 0 0-29.9-6.2c-42.1 0-76.3 34.2-76.3 76.3s34.2 76.3 76.3 76.3 76.3-34.2 76.3-76.3V0h96.9c0 45.1 16.7 86.3 44.2 117.9z')
+                                a.social-link(href='https://www.linkedin.com/company/wavedating/')
+                                    i.bi-linkedin
 
         // Footer
         footer.bg-black.text-center.py-5
             .container.px-5
-                .text-white-50.small
-                    .mb-2 &copy; Your Website 2021. All Rights Reserved.
-                    a(href='#!') Privacy
-                    span.mx-1 &middot;
-                    a(href='#!') Terms
-                    span.mx-1 &middot;
-                    a(href='#!') FAQ
+                .row
+                    .col-lg-6.text-center.text-lg-start.mb-4.mb-lg-0
+                        .text-white.fw-bold.mb-2.u-underline Wave
+                        .text-white-50.small Where video meets love
+                    .col-lg-6.text-center.text-lg-end
+                        .text-white-50.small
+                            .mb-2 &copy; Wave 2024. All Rights Reserved.
+                            a.text-white-50.text-decoration-none.me-3(href='privacy.html') Privacy Policy
+                            a.text-white-50.text-decoration-none.me-3(href='terms.html') Terms of Service
+                            a.text-white-50.text-decoration-none(href='support.html') Support
         
+        // Sticky mobile download bar
+        .sticky-download.d-lg-none
+            .container.d-flex.align-items-center.justify-content-between
+                .copy Find your match on Wave
+                .d-flex.align-items-center.gap-3
+                    a(href='https://apps.apple.com/us/app/wave-dating/id1520259972')
+                        img.app-badge(src='assets/img/app-store-badge.svg', alt='Download on App Store')
+                    a(href='https://play.google.com/store/apps/details?id=com.wavedating&hl=en_US&gl=US')
+                        img.app-badge(src='assets/img/google-play-badge.svg', alt='Get it on Google Play')
+
         include includes/feedback-modal.pug
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
 
+        // Next Level Animation Libraries
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js')
+
         // Core theme JS
         script(src='js/scripts.js')
 
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-        // * *                               SB Forms JS                               * *
-        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
+        // SB Forms JS
         script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')

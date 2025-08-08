@@ -1,89 +1,100 @@
-// Feedback Modal
+// Get Started Modal
 
 #feedbackModal.modal.fade(tabindex='-1', aria-labelledby='feedbackModalLabel', aria-hidden='true')
     .modal-dialog.modal-dialog-centered
-        .modal-content
-            .modal-header.bg-gradient-primary-to-secondary.p-4
-                h5#feedbackModalLabel.modal-title.font-alt.text-white Send feedback
+        .modal-content.rounded-4.border-0.shadow-lg
+            .modal-header.bg-gradient-primary-to-secondary.p-4.border-0
+                h5#feedbackModalLabel.modal-title.font-alt.text-white.fw-bold 
+                    i.bi-heart-fill.me-2
+                    | Get Started with Wave
                 button.btn-close.btn-close-white(type='button' data-bs-dismiss='modal', aria-label='Close')
-            .modal-body.border-0.p-4
+            .modal-body.p-4
+                .text-center.mb-4
+                    .bg-gradient-primary-to-secondary.rounded-circle.mx-auto.mb-3.d-flex.align-items-center.justify-content-center(style="width: 4rem; height: 4rem;")
+                        i.bi-phone.text-white.fs-4
+                    h6.fw-bold.mb-2 Ready to find your person?
+                    p.text-muted.small Download Wave now and start swiping on authentic video profiles!
 
-                // * * * * * * * * * * * * * * *
-                // * * SB Forms Contact Form * *
-                // * * * * * * * * * * * * * * *
+                .row.g-3.mb-4
+                    .col-12
+                        a.btn.btn-outline-primary.w-100.py-3.rounded-pill(href='https://apps.apple.com/us/app/wave-dating/id1520259972')
+                            i.bi-apple.me-2
+                            | Download for iOS
 
-                // This form is pre-integrated with SB Forms.
-                // To make this form functional, sign up at
-                // https://startbootstrap.com/solution/contact-forms
-                // to get an API token!
+                .text-center.mb-4
+                    .small.text-muted.mb-3 Or get in touch with us
+                    .d-flex.justify-content-center.gap-3
+                        a.social-link.small-social(href='https://www.instagram.com/officialwaveapp/')
+                            i.bi-instagram
+                        a.social-link.small-social(href='https://www.tiktok.com/@wavedatingapp')
+                            svg(width='20', height='20', viewBox='0 0 448 512', fill='currentColor', style='display: block; margin: 0 auto;')
+                                path(d='M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349c0 95.6-77.4 173-173 173s-173-77.4-173-173 77.4-173 173-173c10.2 0 20.2 .9 29.9 2.6v97.6a75.9 75.9 0 0 0-29.9-6.2c-42.1 0-76.3 34.2-76.3 76.3s34.2 76.3 76.3 76.3 76.3-34.2 76.3-76.3V0h96.9c0 45.1 16.7 86.3 44.2 117.9z')
+                        a.social-link.small-social(href='https://www.linkedin.com/company/wavedating/')
+                            i.bi-linkedin
 
+                hr.my-4
+
+                // Contact form for feedback
                 form#contactForm(data-sb-form-api-token='API_TOKEN')
+                    .mb-3
+                        h6.fw-bold.mb-3
+                            i.bi-chat-dots.me-2.text-primary
+                            | Have feedback or questions?
 
                     // Name input
                     .form-floating.mb-3
-                        input#name.form-control(
+                        input#name.form-control.border-2(
                             type='text',
                             placeholder='Enter your name...'
                             data-sb-validations='required'
                         )
-                        label(for='name') Full name
+                        label(for='name') Your name
                         .invalid-feedback(data-sb-feedback='name:required')
-                            | A name is required.
+                            | Please enter your name.
                     
                     // Email address input
                     .form-floating.mb-3
-                        input#email.form-control(
+                        input#email.form-control.border-2(
                             type='email',
                             placeholder='name@example.com'
                             data-sb-validations='required,email'
                         )
                         label(for='email') Email address
                         .invalid-feedback(data-sb-feedback='email:required')
-                            | An email is required.
+                            | Please enter your email.
                         .invalid-feedback(data-sb-feedback='email:email')
-                            | Email is not valid.
-                    
-                    // Phone number input
-                    .form-floating.mb-3
-                        input#phone.form-control(
-                            type='tel',
-                            placeholder='(123) 456-7890'
-                            data-sb-validations='required'
-                        )
-                        label(for='phone') Phone number
-                        .invalid-feedback(data-sb-feedback='phone:required')
-                            | A phone number is required.
+                            | Please enter a valid email.
                     
                     // Message input
                     .form-floating.mb-3
-                        textarea#message.form-control(
+                        textarea#message.form-control.border-2(
                             type='text',
-                            placeholder='Enter your message here...',
-                            style='height: 10rem;'
+                            placeholder='Tell us what you think...',
+                            style='height: 8rem;'
                             data-sb-validations='required'
                         )
-                        label(for='message') Message
+                        label(for='message') Your message
                         .invalid-feedback(data-sb-feedback='message:required')
-                            | A message is required.
+                            | Please enter your message.
 
                     // Submit success message
-                    //
-                    // This is what your users will see when the form
-                    // has successfully submitted
                     #submitSuccessMessage.d-none
-                        .text-center.mb-3
-                            .fw-bolder Form submission successful!
-                            | To activate this form, sign up at
-                            br
-                            a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
+                        .alert.alert-success.rounded-pill.text-center
+                            .fw-bold
+                                i.bi-check-circle.me-2
+                                | Thanks for your message!
+                            .small We'll get back to you soon.
 
                     // Submit error message
-                    //
-                    // This is what your users will see when there is
-                    // an error submitting the form
                     #submitErrorMessage.d-none
-                        .text-center.text-danger.mb-3 Error sending message!
+                        .alert.alert-danger.rounded-pill.text-center
+                            i.bi-exclamation-triangle.me-2
+                            | Oops! Something went wrong.
 
                     // Submit Button
                     .d-grid
-                        button#submitButton.btn.btn-primary.rounded-pill.btn-lg.disabled(type='submit') Submit
+                        button#submitButton.btn.btn-primary.rounded-pill.btn-lg.disabled.py-3(type='submit')
+                            i.bi-send.me-2
+                            | Send Message
+
+

@@ -1,13 +1,30 @@
 // 
-// Colors
+// Colors - Exact Wave Brand Palette from Reference Image
 // 
 
-// Override Bootstrap color systel colors
+// Exact Wave brand colors from the Temple University gradient section
 
-$blue: #2937f0;
-$purple: #9f1ae2;
+$teal: #4ECDC4;        // Teal/turquoise start color (more muted)
+$tan: #E8D5B7;         // Light tan/beige end color (not gold)
+$blue: #45B7D1;        // Supporting blue shade
+$green: #10b981;       // Success/accent green
+$orange: #f97316;      // Accent color
+$red: #ef4444;         // Error color
+
+// Gradient colors matching the exact Wave brand from reference
+$gradient-start: #4ECDC4;  // Soft teal
+$gradient-middle: #A8C4BC; // Blend between teal and light tan
+$gradient-end: #E8D5B7;    // Light tan/beige
 
 // Override Bootstrap default state colors
 
-$primary: $blue;
-$secondary: $purple;
+$primary: $teal;
+$secondary: $tan;
+$success: $green;
+$warning: $orange;
+$danger: $red;
+
+// Additional brand colors
+$brand-teal: $teal;
+$brand-tan: $tan;
+$brand-blue: $blue;

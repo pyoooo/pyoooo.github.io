@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Wave - Where TikTok meets Tinder. Swipe on videos, not photos. Find your match through authentic video dating." />
+        <meta name="author" content="Wave Dating" />
+        <title>Wave - Video Dating | TikTok meets Tinder</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts - Adding more modern, trendy fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+        <!-- Animation Libraries CDN-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Fix page scroll issues and hero animation flash-->
+        <style>
+            html {
+                scroll-behavior: auto !important;
+            }
+            body {
+                scroll-behavior: auto !important;
+            }
+            * {
+                scroll-behavior: auto !important;
+            }
+
+            /* Hide hero elements initially to prevent flash */
+            .app-badge,
+            h1,
+            .masthead p,
+            .download-btn {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            /* Show fallback if GSAP doesn't load */
+            .gsap-loaded .app-badge,
+            .gsap-loaded h1,
+            .gsap-loaded .masthead p,
+            .gsap-loaded .download-btn {
+                opacity: 1;
+                visibility: visible;
+            }
+        </style>
+        <!-- Immediate scroll fix - robust approach-->
+        <script>
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            // Clear URL hash if present
+            if (window.location.hash) {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+
+            // Prevent ScrollSpy from jumping to sections on load
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+            }, 50);
+        </script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold" href="#page-top">Wave</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#how-it-works">How It Works</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
+                    </ul>
+                    <button class="btn btn-primary rounded-pill px-4 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                        <span class="d-flex align-items-center">
+                            <i class="bi-chat-heart-fill me-2"></i>
+                            <span class="small">Get Started</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Hero section-->
+        <header class="masthead">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <!-- Hero text and app badges-->
+                        <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                            <div class="badge bg-gradient-primary-to-secondary text-white mb-3 px-3 py-2 rounded-pill pulse">
+                                <i class="bi-fire me-2"></i>
+                                TikTok meets Tinder 🔥
+                            </div>
+                            <h1 class="display-1 lh-1 mb-4 text-gradient-animated">
+                                Swipe on
+                                <span class="text-gradient">videos</span>
+                                , not photos
+                            </h1>
+                            <p class="lead fw-normal text-muted mb-5">
+                                Skip the fake profiles and awkward small talk. See the
+                                <strong class="text-primary">real them</strong>
+                                through authentic videos.
+                                <strong class="text-gradient">Wave is where sparks fly ⚡</strong>
+                            </p>
+                            <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+                                <a class="download-btn" href="https://apps.apple.com/us/app/wave-dating/id1520259972"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="Download on App Store" /></a>
+                            </div>
+                            <div class="mt-4 d-flex align-items-center text-muted small">
+                                <div class="d-flex align-items-center me-4">
+                                    <i class="bi-star-fill text-warning me-1"></i>
+                                    4.9 rating
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi-people-fill me-1"></i>
+                                    1.3K downloads
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Hero device mockup-->
+                        <div class="masthead-device-mockup position-relative">
+                            <!-- animated blobs background-->
+                            <div class="blobs">
+                                <div class="blob teal b1"></div>
+                                <div class="blob tan b2"></div>
+                                <div class="blob blue b3"></div>
+                            </div>
+                            <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+                                        <stop class="gradient-start-color" offset="0%"></stop>
+                                        <stop class="gradient-end-color" offset="100%"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="50" cy="50" r="50"></circle></svg
+                            ><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
+                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect></svg
+                            ><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <div class="device-wrapper device-tilt">
+                                <div class="device" data-device="iPhone15Pro" data-orientation="portrait" data-color="black">
+                                    <div class="screen bg-black">
+                                        <video class="hero-video" muted playsinline preload="auto" autoplay loop poster="assets/img/portrait_black.png" style="max-width: 100%; height: 100%; object-fit: cover"><source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- How it works section-->
+        <section class="section-light" id="how-it-works">
+            <div class="container px-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3 text-gradient">How Wave Works</h2>
+                    <p class="lead text-muted">It's dating, but make it video ✨</p>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <div class="how-step h-100 d-flex flex-column align-items-center text-center">
+                            <div class="feature-icon bg-gradient-primary-to-secondary rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center"><i class="bi-camera-video text-white"></i></div>
+                            <h4 class="fw-bold mb-3">1. Create Your Video Profile</h4>
+                            <p class="text-muted">Show your personality in 30-second videos. No filters, no fake poses - just the real you.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="how-step h-100 d-flex flex-column align-items-center text-center">
+                            <div class="feature-icon bg-gradient-primary-to-secondary rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center"><i class="bi-heart text-white"></i></div>
+                            <h4 class="fw-bold mb-3">2. Swipe on Videos</h4>
+                            <p class="text-muted">Browse authentic video profiles. See how they laugh, talk, and move - way better than static photos.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="how-step h-100 d-flex flex-column align-items-center text-center">
+                            <div class="feature-icon bg-gradient-primary-to-secondary rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center"><i class="bi-chat-dots text-white"></i></div>
+                            <h4 class="fw-bold mb-3">3. Connect & Vibe</h4>
+                            <p class="text-muted">When you both swipe right, start chatting! You already know you vibe from their videos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features section with phone mockup-->
+        <section class="section-accent" id="features">
+            <div class="container px-5">
+                <!-- Wave divider-->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-opacity="0.08" d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,21.3C1200,21,1320,43,1380,53.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+                </div>
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-8 order-lg-1 order-1 mb-5 mb-lg-0">
+                        <div class="row g-5">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi-lightning-charge icon-feature text-gradient d-block mb-3"></i>
+                                    <h4 class="fw-bold">Video-First Matching</h4>
+                                    <p class="text-muted">See personalities, not just poses. Authentic connections start with authentic content.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi-camera-video icon-feature text-gradient d-block mb-3"></i>
+                                    <h4 class="fw-bold">Live Video Dates</h4>
+                                    <p class="text-muted">Skip the texting phase and jump into real-time video conversations with your matches.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi-geo-alt icon-feature text-gradient d-block mb-3"></i>
+                                    <h4 class="fw-bold">Location-Based Discovery</h4>
+                                    <p class="text-muted">Find matches nearby for spontaneous coffee dates and real-world connections.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi-soundwave icon-feature text-gradient d-block mb-3"></i>
+                                    <h4 class="fw-bold">Voice & Video Stories</h4>
+                                    <p class="text-muted">Share multiple video moments - from daily adventures to special talents and hobbies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 order-lg-0 order-0">
+                        <div class="features-device-mockup">
+                            <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+                                        <stop class="gradient-start-color" offset="0%"></stop>
+                                        <stop class="gradient-end-color" offset="100%"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="50" cy="50" r="50"></circle></svg
+                            ><svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(120.42 -49.88) rotate(45)"></rect>
+                                <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03" transform="translate(-49.88 120.42) rotate(-45)"></rect></svg
+                            ><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"></circle></svg>
+                            <div class="device-wrapper">
+                                <div class="device" data-device="iPhone15Pro" data-orientation="portrait" data-color="black">
+                                    <div class="screen bg-black">
+                                        <video muted playsinline preload="auto" autoplay loop poster="assets/img/portrait_black.png" style="max-width: 100%; height: 100%; object-fit: cover"><source src="assets/img/9460275.mp4" type="video/mp4" /></video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dating Cards Section - Interactive Swiper-->
+        <section class="dating-cards-section py-5">
+            <div class="container px-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3 text-gradient">💕 Meet Amazing People</h2>
+                    <p class="lead text-muted">Swipe through real video profiles</p>
+                </div>
+                <!-- Dating cards will be inserted here by JavaScript-->
+            </div>
+        </section>
+        <!-- Testimonials section-->
+        <section class="testimonials-section">
+            <div class="container px-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3">What Customers Are Saying About Us</h2>
+                    <p class="lead text-muted">Real users sharing their video dating experiences</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="testimonial-card bg-white rounded-4 shadow-sm p-4 h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar bg-gradient-primary-to-secondary rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold">J</div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Jacoby, 28</h6>
+                                    <div class="text-muted">Philadelphia, PA</div>
+                                </div>
+                            </div>
+                            <p class="mb-3">"Making videos is SO easy! Just 30 seconds and boom - people actually see my personality. Way more fun than writing boring bios. The video quality is amazing! 🎥"</p>
+                            <div class="text-warning small">
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-card bg-white rounded-4 shadow-sm p-4 h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar bg-gradient-primary-to-secondary rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold">K</div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Katie, 23</h6>
+                                    <div class="text-muted">New York, NY</div>
+                                </div>
+                            </div>
+                            <p class="mb-3">"I was nervous about making videos at first, but the app makes it super simple! Now I'm addicted to watching everyone's mini-stories. It's like TikTok meets dating - genius! 📱"</p>
+                            <div class="text-warning small">
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-card bg-white rounded-4 shadow-sm p-4 h-100">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar bg-gradient-primary-to-secondary rounded-circle me-3 d-flex align-items-center justify-content-center text-white fw-bold">S</div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Sam, 27</h6>
+                                    <div class="text-muted">San Diego, CA</div>
+                                </div>
+                            </div>
+                            <p class="mb-3">"The videos are so exciting to watch! I can see people's real energy and vibe before matching. Creating mine took like 2 minutes - no stress, just authentic me! ✨"</p>
+                            <div class="text-warning small">
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                                <i class="bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA section-->
+        <section class="cta-section bg-gradient-animated">
+            <div class="container px-5 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-3 text-white fw-bold mb-4">Ready to find your person? 💕</h2>
+                        <p class="lead text-white mb-5 opacity-90">Join thousands of people finding real love through authentic video connections. Your soulmate is just a swipe away! ✨</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
+                            <a class="btn btn-light btn-lg rounded-pill px-5 py-3" href="https://apps.apple.com/us/app/wave-dating/id1520259972">
+                                <i class="bi-apple me-2"></i>
+                                Download for iOS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- App badge section-->
+        <section class="section-dark" id="download">
+            <div class="container px-5">
+                <!-- Wave divider-->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-opacity="0.08" d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,21.3C1200,21,1320,43,1380,53.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h3 class="text-white fw-bold mb-3">Get the app now</h3>
+                        <p class="text-white-50 mb-4">Available on the App Store</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                            <a href="https://apps.apple.com/us/app/wave-dating/id1520259972"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="Download on App Store" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                        <div class="social-links">
+                            <h5 class="text-white mb-3">Follow us for updates</h5>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a class="social-link" href="https://www.instagram.com/officialwaveapp/"><i class="bi-instagram"></i></a>
+                                <a class="social-link" href="https://www.tiktok.com/@wavedatingapp">
+                                    <svg width="20" height="20" viewBox="0 0 448 512" fill="currentColor" style="display: block; margin: 0 auto"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349c0 95.6-77.4 173-173 173s-173-77.4-173-173 77.4-173 173-173c10.2 0 20.2 .9 29.9 2.6v97.6a75.9 75.9 0 0 0-29.9-6.2c-42.1 0-76.3 34.2-76.3 76.3s34.2 76.3 76.3 76.3 76.3-34.2 76.3-76.3V0h96.9c0 45.1 16.7 86.3 44.2 117.9z"></path></svg>
+                                </a>
+                                <a class="social-link" href="https://www.linkedin.com/company/wavedating/"><i class="bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                        <div class="text-white fw-bold mb-2 u-underline">Wave</div>
+                        <div class="text-white-50 small">Where video meets love</div>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <div class="text-white-50 small">
+                            <div class="mb-2">&copy; Wave 2024. All Rights Reserved.</div>
+                            <a class="text-white-50 text-decoration-none me-3" href="privacy.html">Privacy Policy</a>
+                            <a class="text-white-50 text-decoration-none me-3" href="terms.html">Terms of Service</a>
+                            <a class="text-white-50 text-decoration-none" href="support.html">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Sticky mobile download bar-->
+        <div class="sticky-download d-lg-none">
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="copy">Find your match on Wave</div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="https://apps.apple.com/us/app/wave-dating/id1520259972"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="Download on App Store" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.wavedating&amp;hl=en_US&amp;gl=US"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="Get it on Google Play" /></a>
+                </div>
+            </div>
+        </div>
+        <!-- Get Started Modal-->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow-lg">
+                    <div class="modal-header bg-gradient-primary-to-secondary p-4 border-0">
+                        <h5 class="modal-title font-alt text-white fw-bold" id="feedbackModalLabel">
+                            <i class="bi-heart-fill me-2"></i>
+                            Get Started with Wave
+                        </h5>
+                        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-gradient-primary-to-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 4rem; height: 4rem"><i class="bi-phone text-white fs-4"></i></div>
+                            <h6 class="fw-bold mb-2">Ready to find your person?</h6>
+                            <p class="text-muted small">Download Wave now and start swiping on authentic video profiles!</p>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <a class="btn btn-outline-primary w-100 py-3 rounded-pill" href="https://apps.apple.com/us/app/wave-dating/id1520259972">
+                                    <i class="bi-apple me-2"></i>
+                                    Download for iOS
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center mb-4">
+                            <div class="small text-muted mb-3">Or get in touch with us</div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a class="social-link small-social" href="https://www.instagram.com/officialwaveapp/"><i class="bi-instagram"></i></a>
+                                <a class="social-link small-social" href="https://www.tiktok.com/@wavedatingapp">
+                                    <svg width="20" height="20" viewBox="0 0 448 512" fill="currentColor" style="display: block; margin: 0 auto"><path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.3V349c0 95.6-77.4 173-173 173s-173-77.4-173-173 77.4-173 173-173c10.2 0 20.2 .9 29.9 2.6v97.6a75.9 75.9 0 0 0-29.9-6.2c-42.1 0-76.3 34.2-76.3 76.3s34.2 76.3 76.3 76.3 76.3-34.2 76.3-76.3V0h96.9c0 45.1 16.7 86.3 44.2 117.9z"></path></svg>
+                                </a>
+                                <a class="social-link small-social" href="https://www.linkedin.com/company/wavedating/"><i class="bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <!-- Contact form for feedback-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <div class="mb-3">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="bi-chat-dots me-2 text-primary"></i>
+                                    Have feedback or questions?
+                                </h6>
+                            </div>
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control border-2" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Your name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Please enter your name.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control border-2" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Please enter your email.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Please enter a valid email.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control border-2" id="message" type="text" placeholder="Tell us what you think..." style="height: 8rem" data-sb-validations="required"></textarea>
+                                <label for="message">Your message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Please enter your message.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="alert alert-success rounded-pill text-center">
+                                    <div class="fw-bold">
+                                        <i class="bi-check-circle me-2"></i>
+                                        Thanks for your message!
+                                    </div>
+                                    <div class="small">We'll get back to you soon.</div>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="alert alert-danger rounded-pill text-center">
+                                    <i class="bi-exclamation-triangle me-2"></i>
+                                    Oops! Something went wrong.
+                                </div>
+                            </div>
+                            <!-- Submit Button-->
+                            <div class="d-grid">
+                                <button class="btn btn-primary rounded-pill btn-lg disabled py-3" id="submitButton" type="submit">
+                                    <i class="bi-send me-2"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Next Level Animation Libraries-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- SB Forms JS-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

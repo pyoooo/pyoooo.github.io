@@ -1,0 +1,111 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='Wave Dating App Privacy Policy - How we protect your data and privacy.')
+        meta(name='author', content='Wave Dating')
+        title Wave - Privacy Policy
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Bootstrap icons
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body#page-top
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.shadow-sm
+            .container.px-5
+                a.navbar-brand.fw-bold(href='index.html') Wave
+                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    i.bi-list
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto.me-4.my-3.my-lg-0
+                        li.nav-item
+                            a.nav-link.me-lg-3(href='index.html') Home
+                        li.nav-item
+                            a.nav-link.me-lg-3(href='terms.html') Terms
+                        li.nav-item
+                            a.nav-link.me-lg-3(href='support.html') Support
+                    a.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0(data-bs-toggle='modal', data-bs-target='#feedbackModal')
+                        span.d-flex.align-items-center
+                            i.bi-chat-text-fill.me-2
+                            span.small GET STARTED
+
+        // Privacy Policy Content
+        section.section-light
+            .container.px-5
+                .row.justify-content-center
+                    .col-lg-8
+                        .text-center.mb-5
+                            h1.display-4.fw-bold.mb-3 Privacy Policy
+                            p.lead.text-muted Last updated: January 2024
+                        
+                        .privacy-content
+                            h3.fw-bold.mb-3 Information We Collect
+                            p We collect information you provide directly to us, such as when you create an account, update your profile, or contact us for support.
+                            
+                            h4.fw-bold.mt-4.mb-2 Personal Information
+                            ul
+                                li Name, email address, phone number
+                                li Profile photos and videos
+                                li Age, location, and dating preferences
+                                li Messages and interactions with other users
+                            
+                            h3.fw-bold.mt-5.mb-3 How We Use Your Information
+                            p We use the information we collect to provide, maintain, and improve our services, including:
+                            ul
+                                li Creating and managing your account
+                                li Matching you with other users
+                                li Facilitating communication between users
+                                li Improving our app and user experience
+                                li Sending you important updates and notifications
+                            
+                            h3.fw-bold.mt-5.mb-3 Information Sharing
+                            p We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy:
+                            ul
+                                li With other users as part of the matching service
+                                li With service providers who assist in our operations
+                                li When required by law or to protect our rights
+                            
+                            h3.fw-bold.mt-5.mb-3 Data Security
+                            p We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+                            
+                            h3.fw-bold.mt-5.mb-3 Your Rights
+                            p You have the right to:
+                            ul
+                                li Access your personal information
+                                li Correct inaccurate information
+                                li Delete your account and data
+                                li Opt out of certain communications
+                            
+                            h3.fw-bold.mt-5.mb-3 Contact Us
+                            p If you have questions about this Privacy Policy, please contact us:
+                            ul
+                                li Email: privacy@wavedating.com
+                                li Support: pyoo@wavedatingapp.com
+                            
+                            .text-center.mt-5
+                                a.btn.btn-primary.rounded-pill(href='index.html') Back to Home
+
+        // Footer
+        footer.bg-black.text-center.py-5
+            .container.px-5
+                .text-white-50.small
+                    | Copyright &copy; Wave Dating 2024
+
+        // Feedback modal
+        include includes/feedback-modal
+
+        // Bootstrap core JS
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js') 
